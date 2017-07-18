@@ -154,6 +154,7 @@ class Game {
       background: '#0CD7E8',
       border: '#09acb9',
     });
+    tank.health = 40;
     this.add(tank);
 
     const compTank1 = new __WEBPACK_IMPORTED_MODULE_1__tank__["a" /* default */]({
@@ -179,6 +180,41 @@ class Game {
       pos: [100, DIM_Y - 100],
     });
     this.add(compTank3);
+    const compTank4 = new __WEBPACK_IMPORTED_MODULE_1__tank__["a" /* default */]({
+      game: this,
+      background: '#ff3232',
+      border: '#cc0000',
+      pos: [300, DIM_Y - 200],
+    });
+    this.add(compTank4);
+    const compTank5 = new __WEBPACK_IMPORTED_MODULE_1__tank__["a" /* default */]({
+      game: this,
+      background: '#ff3232',
+      border: '#cc0000',
+      pos: [500, DIM_Y - 300],
+    });
+    this.add(compTank5);
+    const compTank6 = new __WEBPACK_IMPORTED_MODULE_1__tank__["a" /* default */]({
+      game: this,
+      background: '#ff3232',
+      border: '#cc0000',
+      pos: [700, DIM_Y - 400],
+    });
+    this.add(compTank6);
+    const compTank7 = new __WEBPACK_IMPORTED_MODULE_1__tank__["a" /* default */]({
+      game: this,
+      background: '#ff3232',
+      border: '#cc0000',
+      pos: [900, DIM_Y - 500],
+    });
+    this.add(compTank7);
+    const compTank8 = new __WEBPACK_IMPORTED_MODULE_1__tank__["a" /* default */]({
+      game: this,
+      background: '#ff3232',
+      border: '#cc0000',
+      pos: [1000, DIM_Y - 600],
+    });
+    this.add(compTank8);
   }
 
   allObjects() {
@@ -313,7 +349,7 @@ class Game {
   bulletRemoval() {
     for (let i = 0; i < this.bullets.length; i++) {
       const distanceTravelled = __WEBPACK_IMPORTED_MODULE_3__util__["c" /* dist */](this.bullets[i].pos, this.bullets[i].originPos);
-      if (distanceTravelled > 350) {
+      if (distanceTravelled > 5000) {
         this.remove(this.bullets[i]);
       }
     }
@@ -440,7 +476,7 @@ const startGame = (gameCanvas, ctx) => {
 
 
 const DEFAULTS = {
-  SPEED: 7,
+  SPEED: 1000,
 };
 
 class Bullet extends __WEBPACK_IMPORTED_MODULE_1__moving_object__["a" /* default */] {
@@ -677,15 +713,15 @@ class GameView {
     this.gameCanvas = gameCanvas;
     this.tank = this.game.tanks[0];
     this.keys = {
-      37:{down:false, action:() => this.tank.power([-1.5, 0])},
-      38:{down:false, action:() => this.tank.power([1.5, 0])},
-      39:{down:false, action:() => this.tank.power([0, 1.5])},
-      40:{down:false, action:() => this.tank.power([0, -1.5])},
+      37:{down:false, action:() => this.tank.power([-4, 0])},
+      38:{down:false, action:() => this.tank.power([4, 0])},
+      39:{down:false, action:() => this.tank.power([0, 4])},
+      40:{down:false, action:() => this.tank.power([0, -4])},
 
-      65:{down:false, action:() => this.tank.power([-1.5, 0])},
-      68:{down:false, action:() => this.tank.power([1.5, 0])},
-      83:{down:false, action:() => this.tank.power([0, 1.5])},
-      87:{down:false, action:() => this.tank.power([0, -1.5])},
+      65:{down:false, action:() => this.tank.power([-4, 0])},
+      68:{down:false, action:() => this.tank.power([4, 0])},
+      83:{down:false, action:() => this.tank.power([0, 4])},
+      87:{down:false, action:() => this.tank.power([0, -4])},
     };
   }
 
